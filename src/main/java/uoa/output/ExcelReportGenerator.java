@@ -183,12 +183,13 @@ public class ExcelReportGenerator {
     CellStyle dataStyle = createDataStyle(workbook);
     CellStyle numberStyle = createCenterStyle(workbook);
 
-    int rowNum = 1;
+    // Use an array to hold the current row number so it can be modified in the lambda
+    final int[] rowNum = {1};
     data.entrySet().stream()
         .sorted(Map.Entry.<String, Long>comparingByValue().reversed())
         .forEach(
             entry -> {
-              Row row = sheet.createRow(rowNum);
+              Row row = sheet.createRow(rowNum[0]);
 
               Cell keyCell = row.createCell(0);
               keyCell.setCellValue(entry.getKey());
@@ -197,6 +198,8 @@ public class ExcelReportGenerator {
               Cell valueCell = row.createCell(1);
               valueCell.setCellValue(entry.getValue());
               valueCell.setCellStyle(numberStyle);
+              
+              rowNum[0]++; // Increment row number for next iteration
             });
   }
 
