@@ -198,7 +198,7 @@ public class ExcelReportGenerator {
               Cell valueCell = row.createCell(1);
               valueCell.setCellValue(entry.getValue());
               valueCell.setCellStyle(numberStyle);
-              
+
               rowNum[0]++; // Increment row number for next iteration
             });
   }
