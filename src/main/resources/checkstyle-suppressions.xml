@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE suppressions PUBLIC "-//Checkstyle//DTD SuppressionFilter Configuration 1.2//EN" "https://checkstyle.org/dtds/suppressions_1_2.dtd">
+
+<suppressions>
+  <!-- Suppress JavaDoc checks for test files -->
+  <suppress checks="JavadocMethod|JavadocType|MissingJavadocMethod|MissingJavadocType"
+    files=".*[/\\]test[/\\].*\.java" />
+
+  <!-- Suppress line length for long URLs or imports -->
+  <suppress checks="LineLength" files=".*\.java" lines="1-20" />
+
+  <!-- Allow utility classes without public constructor in certain packages -->
+  <suppress checks="HideUtilityClassConstructor" files=".*[/\\]util[/\\].*\.java" />
+</suppressions>
