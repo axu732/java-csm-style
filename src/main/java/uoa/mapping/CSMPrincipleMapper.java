@@ -44,6 +44,7 @@ public class CSMPrincipleMapper {
    */
   private void initializeDefaultMappings() {
     // Clear Layout principles
+    addMapping("NoLineWrap", CSMPrinciple.CLEAR_LAYOUT);
     addMapping("CustomImportOrder", CSMPrinciple.CLEAR_LAYOUT); // 3.3.3 Ordering and spacing
     addMapping(
         "OneTopLevelClass",
@@ -98,6 +99,7 @@ public class CSMPrincipleMapper {
         "MultipleVariableDeclarations",
         CSMPrinciple.EXPLANATORY_LANGUAGE); // 4.8.2.1 One variable per declaration
     addMapping("FallThrough", CSMPrinciple.EXPLANATORY_LANGUAGE); // 4.8.4.2 Fall-through: commented
+    addMapping("TodoComment", CSMPrinciple.EXPLANATORY_LANGUAGE);
     addMapping("UpperEll", CSMPrinciple.EXPLANATORY_LANGUAGE); // 4.8.8 Numeric Literals
     addMapping(
         "CatchParameterName",
@@ -109,7 +111,56 @@ public class CSMPrincipleMapper {
     addMapping(
         "MultipleVariableDeclarations",
         CSMPrinciple.SIMPLE_CONSTRUCTS); // 4.8.2.1 One variable per declaration
+
     // Be Consistent principles
+
+    addMapping("EmptyLineSeparator", CSMPrinciple.BE_CONSISTENT); // 3 Source file structure
+
+    // Line Length and No Line Wrape corresponds to 3.2 Package Statement but is covered by 4.4
+    // Column Length and 3.3.2 No Line-Wrapping
+
+    addMapping(
+        "NeedBraces",
+        CSMPrinciple.BE_CONSISTENT); // 4.1.1 Use of optional braces + No Unused Content
+
+    addMapping("LeftCurly", CSMPrinciple.BE_CONSISTENT); // 4.1.2 Nonempty blocks: K & R style
+    addMapping("RightCurly", CSMPrinciple.BE_CONSISTENT); // 4.1.2 Nonempty blocks: K & R style
+
+    addMapping("Indentation", CSMPrinciple.BE_CONSISTENT); // 4.2 Block indentation
+
+    addMapping("OneStatementPerLine", CSMPrinciple.BE_CONSISTENT); // 4.3 One statement per line
+
+    // 4.4 Column limit: 100 + Clear Layout
+
+    // 4.5.2 Indent continuation lines at least +4 Spaces is Covered by 4.2 Block Indentation with
+    // Indentation
+
+    // 4.6.1 Vertical Whitespace + Clear Layout
+
+    addMapping("WhitespaceAround", CSMPrinciple.BE_CONSISTENT); // 4.6.2 Horizontal whitespace
+    addMapping("GenericWhitespace", CSMPrinciple.BE_CONSISTENT); // 4.6.2 Horizontal whitespace
+    addMapping("MethodParamPad", CSMPrinciple.BE_CONSISTENT); // 4.6.2 Horizontal whitespace
+    addMapping("ParenPad", CSMPrinciple.BE_CONSISTENT); // 4.6.2 Horizontal whitespace
+    addMapping("WhitespaceAfter", CSMPrinciple.BE_CONSISTENT); // 4.6.2 Horizontal whitespace
+    addMapping("NoWhitespaceBefore", CSMPrinciple.BE_CONSISTENT); // 4.6.2 Horizontal whitespace
+    addMapping(
+        "NoWhitespaceBeforeCaseDefaultColon",
+        CSMPrinciple.BE_CONSISTENT); // 4.6.2 Horizontal whitespace
+    addMapping("MatchXpath", CSMPrinciple.BE_CONSISTENT); // 4.6.2 Horizontal whitespace
+
+    addMapping(
+        "ArrayTypeStyle", CSMPrinciple.BE_CONSISTENT); // 4.8.3.2 No C-style array declarations
+
+    // 4.8.4.1 Switch Statement Indentation is Covered by Indentation already.
+
+    // 4.8.5.2 Class annotations, 4.8.5.3 Method and constructor annotations, 4.8.5.4 Field
+    // annotations already covered in Clear Layout
+
+    addMapping("ModifierOrder", CSMPrinciple.BE_CONSISTENT); // 4.8.7 Modifiers
+
+    // 5.1 Rules common to all identifiers covered in Explanatory language
+
+    // 5.2.2 Class Names and 5.2.3 Method Names are in Clear Layout
 
     // No Unused Content principles
 
