@@ -38,7 +38,10 @@ public class CSMPrincipleMapper {
     initializeDefaultMappings();
   }
 
-  /** Initialize default mappings between common Checkstyle rules and CSM principles. */
+  /**
+   * Initialize default mappings between common Checkstyle rules and CSM principles. NOTE: ALL RULES
+   * HAVE BEEN TAKEN FROM THE GOOGLE DOC, FIRST MENTION IS WHAT IS IMPLEMENTED
+   */
   private void initializeDefaultMappings() {
     // Clear Layout principles
     addMapping("CustomImportOrder", CSMPrinciple.CLEAR_LAYOUT); // 3.3.3 Ordering and spacing
