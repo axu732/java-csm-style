@@ -106,7 +106,9 @@ public class CSMPrincipleMapper {
     addMapping("MethodName", CSMPrinciple.EXPLANATORY_LANGUAGE); // 5.2.3 Method names
 
     // Simple Constructs principles
-
+    addMapping(
+        "MultipleVariableDeclarations",
+        CSMPrinciple.SIMPLE_CONSTRUCTS); // 4.8.2.1 One variable per declaration
     // Be Consistent principles
 
     // No Unused Content principles
