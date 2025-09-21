@@ -41,70 +41,39 @@ public class CSMPrincipleMapper {
   /** Initialize default mappings between common Checkstyle rules and CSM principles. */
   private void initializeDefaultMappings() {
     // Clear Layout principles
-    addMapping("Indentation", CSMPrinciple.CLEAR_LAYOUT);
-    addMapping("LineLength", CSMPrinciple.CLEAR_LAYOUT);
-    addMapping("WhitespaceAfter", CSMPrinciple.CLEAR_LAYOUT);
-    addMapping("WhitespaceAround", CSMPrinciple.CLEAR_LAYOUT);
-    addMapping("EmptyLineSeparator", CSMPrinciple.CLEAR_LAYOUT);
-    addMapping("NoWhitespaceAfter", CSMPrinciple.CLEAR_LAYOUT);
-    addMapping("NoWhitespaceBefore", CSMPrinciple.CLEAR_LAYOUT);
 
     // Explanatory Language principles
-    addMapping("JavadocMethod", CSMPrinciple.EXPLANATORY_LANGUAGE);
-    addMapping("JavadocType", CSMPrinciple.EXPLANATORY_LANGUAGE);
-    addMapping("JavadocVariable", CSMPrinciple.EXPLANATORY_LANGUAGE);
-    addMapping("MissingJavadocMethod", CSMPrinciple.EXPLANATORY_LANGUAGE);
-    addMapping("MissingJavadocType", CSMPrinciple.EXPLANATORY_LANGUAGE);
-    addMapping("NonEmptyAtclauseDescription", CSMPrinciple.EXPLANATORY_LANGUAGE);
+    addMapping("OuterTypeFilename", CSMPrinciple.EXPLANATORY_LANGUAGE); // 2.1 File name
+    addMapping(
+        " FileTabCharacter",
+        CSMPrinciple.EXPLANATORY_LANGUAGE); // 2.3.1 Whitespace Characters. + Clear Layout
+    addMapping(
+        "IllegalTokenText", CSMPrinciple.EXPLANATORY_LANGUAGE); // 2.3.2 Special escape sequences
+    addMapping(
+        "AvoidEscapedUnicodeCharacters",
+        CSMPrinciple.EXPLANATORY_LANGUAGE); // 2.3.3 Non-ASCII characters
+    addMapping("AvoidStarImport", CSMPrinciple.EXPLANATORY_LANGUAGE); // 3.3.1 No wildcard imports
+    addMapping(
+        "MultipleVariableDeclarations",
+        CSMPrinciple.EXPLANATORY_LANGUAGE); // 4.8.2.1 One variable per declaration
+    addMapping("FallThrough", CSMPrinciple.EXPLANATORY_LANGUAGE); // 4.8.4.2 Fall-through: commented
+    addMapping("UpperEll", CSMPrinciple.EXPLANATORY_LANGUAGE); // 4.8.8 Numeric Literals
+    addMapping(
+        " CatchParameterName",
+        CSMPrinciple.EXPLANATORY_LANGUAGE); // 5.1 Rules common to all identifiers
 
     // Simple Constructs principles
-    addMapping("CyclomaticComplexity", CSMPrinciple.SIMPLE_CONSTRUCTS);
-    addMapping("NPathComplexity", CSMPrinciple.SIMPLE_CONSTRUCTS);
-    addMapping("NestedForDepth", CSMPrinciple.SIMPLE_CONSTRUCTS);
-    addMapping("NestedIfDepth", CSMPrinciple.SIMPLE_CONSTRUCTS);
-    addMapping("NestedTryDepth", CSMPrinciple.SIMPLE_CONSTRUCTS);
-    addMapping("SimplifyBooleanExpression", CSMPrinciple.SIMPLE_CONSTRUCTS);
-    addMapping("SimplifyBooleanReturn", CSMPrinciple.SIMPLE_CONSTRUCTS);
 
     // Be Consistent principles
-    addMapping("NeedBraces", CSMPrinciple.BE_CONSISTENT);
-    addMapping("LeftCurly", CSMPrinciple.BE_CONSISTENT);
-    addMapping("RightCurly", CSMPrinciple.BE_CONSISTENT);
-    addMapping("TypeName", CSMPrinciple.BE_CONSISTENT);
-    addMapping("MethodName", CSMPrinciple.BE_CONSISTENT);
-    addMapping("VariableName", CSMPrinciple.BE_CONSISTENT);
-    addMapping("PackageName", CSMPrinciple.BE_CONSISTENT);
-    addMapping("ConstantName", CSMPrinciple.BE_CONSISTENT);
-    addMapping("LocalVariableName", CSMPrinciple.BE_CONSISTENT);
-    addMapping("MemberName", CSMPrinciple.BE_CONSISTENT);
-    addMapping("ParameterName", CSMPrinciple.BE_CONSISTENT);
 
     // No Unused Content principles
-    addMapping("UnusedImports", CSMPrinciple.NO_UNUSED_CONTENT);
-    addMapping("RedundantImport", CSMPrinciple.NO_UNUSED_CONTENT);
-    addMapping("UnusedLocalVariable", CSMPrinciple.NO_UNUSED_CONTENT);
-    addMapping("EmptyBlock", CSMPrinciple.NO_UNUSED_CONTENT);
-    addMapping("EmptyStatement", CSMPrinciple.NO_UNUSED_CONTENT);
 
     // Avoid Duplication principles
-    addMapping("StringLiteralEquality", CSMPrinciple.AVOID_DUPLICATION);
-    addMapping("RedundantModifier", CSMPrinciple.AVOID_DUPLICATION);
-    addMapping("UnnecessaryParentheses", CSMPrinciple.AVOID_DUPLICATION);
 
     // Modular Structure principles
-    addMapping("OneTopLevelClass", CSMPrinciple.MODULAR_STRUCTURE);
-    addMapping("OuterTypeFilename", CSMPrinciple.MODULAR_STRUCTURE);
-    addMapping("ClassDataAbstractionCoupling", CSMPrinciple.MODULAR_STRUCTURE);
-    addMapping("ClassFanOutComplexity", CSMPrinciple.MODULAR_STRUCTURE);
-    addMapping("HideUtilityClassConstructor", CSMPrinciple.MODULAR_STRUCTURE);
 
     // Congruent Implementation principles
-    addMapping("OverloadMethodsDeclarationOrder", CSMPrinciple.CONGRUENT_IMPLEMENTATION);
-    addMapping("DeclarationOrder", CSMPrinciple.CONGRUENT_IMPLEMENTATION);
-    addMapping("ModifierOrder", CSMPrinciple.CONGRUENT_IMPLEMENTATION);
-    addMapping("VisibilityModifier", CSMPrinciple.CONGRUENT_IMPLEMENTATION);
-    addMapping("FinalClass", CSMPrinciple.CONGRUENT_IMPLEMENTATION);
-    addMapping("DesignForExtension", CSMPrinciple.CONGRUENT_IMPLEMENTATION);
+
   }
 
   /** Add a new mapping between a Checkstyle rule and a CSM principle. */
