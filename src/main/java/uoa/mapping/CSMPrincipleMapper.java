@@ -41,6 +41,44 @@ public class CSMPrincipleMapper {
   /** Initialize default mappings between common Checkstyle rules and CSM principles. */
   private void initializeDefaultMappings() {
     // Clear Layout principles
+    addMapping("CustomImportOrder", CSMPrinciple.CLEAR_LAYOUT); // 3.3.3 Ordering and spacing
+    addMapping(
+        "OneTopLevelClass",
+        CSMPrinciple.CLEAR_LAYOUT); // 3.4.1 Exactly one top-level class declaration
+    addMapping(
+        "OverloadMethodsDeclarationOrder",
+        CSMPrinciple.CLEAR_LAYOUT); // 3.4.2.1 Overloads: never split
+    addMapping(
+        "ConstructorsDeclarationGrouping",
+        CSMPrinciple.CLEAR_LAYOUT); // 3.4.2.1 Overloads: never split
+    addMapping(
+        "RegexpSinglelineJava", CSMPrinciple.CLEAR_LAYOUT); // 4.1.3 Empty blocks: may be concise
+    addMapping("LineLength", CSMPrinciple.CLEAR_LAYOUT); // 4.4 Column limit: 100
+    addMapping("OperatorWrap", CSMPrinciple.CLEAR_LAYOUT); // 4.5.1 Where to break
+    addMapping("SeparatorWrap", CSMPrinciple.CLEAR_LAYOUT); // 4.5.1 Where to break
+    addMapping("MethodParamPad", CSMPrinciple.CLEAR_LAYOUT); // 4.5.1 Where to break
+    addMapping(
+        "EmptyLineSeparator",
+        CSMPrinciple.CLEAR_LAYOUT); // 4.6.1 Vertical Whitespace + Consistent Design
+    addMapping(
+        "VariableDeclarationUsageDistance",
+        CSMPrinciple.CLEAR_LAYOUT); // 4.8.2.2 Declared when needed
+
+    // 4.8.5.3 Method and constructor annotations and 4.8.5.4 Field annotations also covered in
+    // these two rules
+    addMapping(
+        "AnnotationLocation",
+        CSMPrinciple
+            .CLEAR_LAYOUT); // 	4.8.5.2 Class, package, and module annotations + Consistent Design
+    addMapping(
+        "InvalidJavadocPosition",
+        CSMPrinciple
+            .CLEAR_LAYOUT); // 	4.8.5.2 Class, package, and module annotations + Consistent Design
+
+    addMapping("CommentsIndentation", CSMPrinciple.CLEAR_LAYOUT); // 4.8.6.1 Block comment style
+    addMapping("PackageName", CSMPrinciple.CLEAR_LAYOUT); // 5.2.1 Package names
+    addMapping("TypeName", CSMPrinciple.CLEAR_LAYOUT); // 5.2.2 Class names
+    addMapping("MethodName", CSMPrinciple.CLEAR_LAYOUT); // 5.2.3 Method names
 
     // Explanatory Language principles
     addMapping("OuterTypeFilename", CSMPrinciple.EXPLANATORY_LANGUAGE); // 2.1 File name
@@ -59,8 +97,10 @@ public class CSMPrincipleMapper {
     addMapping("FallThrough", CSMPrinciple.EXPLANATORY_LANGUAGE); // 4.8.4.2 Fall-through: commented
     addMapping("UpperEll", CSMPrinciple.EXPLANATORY_LANGUAGE); // 4.8.8 Numeric Literals
     addMapping(
-        " CatchParameterName",
+        "CatchParameterName",
         CSMPrinciple.EXPLANATORY_LANGUAGE); // 5.1 Rules common to all identifiers
+    addMapping("TypeName", CSMPrinciple.EXPLANATORY_LANGUAGE); // 5.2.2 Class names
+    addMapping("MethodName", CSMPrinciple.EXPLANATORY_LANGUAGE); // 5.2.3 Method names
 
     // Simple Constructs principles
 
