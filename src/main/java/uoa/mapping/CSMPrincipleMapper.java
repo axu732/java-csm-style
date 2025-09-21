@@ -164,12 +164,16 @@ public class CSMPrincipleMapper {
 
     // No Unused Content principles
 
+    // 4.1.1 Use of optional Braces is covered in Consistent Design
+
     // Avoid Duplication principles
 
     // Modular Structure principles
 
     // Congruent Implementation principles
-
+    addMapping(
+        "EmptyCatchBlock",
+        CSMPrinciple.CONGRUENT_IMPLEMENTATION); // 6.2 Caught exceptions: not ignored
   }
 
   /** Add a new mapping between a Checkstyle rule and a CSM principle. */
