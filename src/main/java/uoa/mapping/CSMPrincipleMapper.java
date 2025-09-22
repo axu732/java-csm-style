@@ -87,6 +87,7 @@ public class CSMPrincipleMapper {
     addMapping("MethodName", CSMPrinciple.CLEAR_LAYOUT); // 5.2.3 Method names
     addMapping("MemberName", CSMPrinciple.CLEAR_LAYOUT); // 5.2.5 Non-constant field names
     addMapping("LocalVariableName", CSMPrinciple.CLEAR_LAYOUT); // 5.2.7 Local variable names
+    addMapping("PatternVariableName", CSMPrinciple.CLEAR_LAYOUT); // 5.2.7 Local variablenames
     addMapping("MethodTypeParameterName", CSMPrinciple.CLEAR_LAYOUT); // 5.2.8 Type variable names
     addMapping("ClassTypeParameterName", CSMPrinciple.CLEAR_LAYOUT); // 5.2.8 Type variable names
     addMapping(
