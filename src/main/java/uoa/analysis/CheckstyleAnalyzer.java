@@ -152,6 +152,12 @@ public class CheckstyleAnalyzer {
       paths
           .filter(Files::isRegularFile)
           .filter(path -> path.toString().endsWith(".java"))
+          .filter(
+              path -> {
+                // Only include files that are in src/main paths
+                String pathString = path.toString().replace('\\', '/');
+                return pathString.contains("/src/main/");
+              })
           .map(Path::toFile)
           .forEach(javaFiles::add);
     }
@@ -190,13 +196,18 @@ public class CheckstyleAnalyzer {
     @Override
     public void addError(AuditEvent event) {
       if (event.getFileName() != null) {
-        String fileName = new File(event.getFileName()).getName();
+        String fullPath = event.getFileName();
+        String fileName = new File(fullPath).getName();
+
+        // Extract assignment name from path and prefix to filename
+        String prefixedFileName = extractAssignmentPrefix(fullPath) + fileName;
+
         String ruleName = extractRuleName(event.getSourceName());
         String csmPrinciple = principleMapper.getPrincipleDisplayName(ruleName);
 
         ViolationRecord violation =
             new ViolationRecord(
-                fileName,
+                prefixedFileName,
                 ruleName,
                 csmPrinciple,
                 event.getLine(),
@@ -237,6 +248,26 @@ public class CheckstyleAnalyzer {
       }
 
       return className;
+    }
+
+    /** Extract assignment prefix from file path for naming clarity. */
+    private String extractAssignmentPrefix(String fullPath) {
+      if (fullPath == null) {
+        return "";
+      }
+
+      // Normalize path separators
+      String normalizedPath = fullPath.replace('\\', '/');
+
+      // Look for assignment pattern like "assignment-1-X" in the path
+      String[] pathParts = normalizedPath.split("/");
+      for (String part : pathParts) {
+        if (part.startsWith("assignment-") && part.matches("assignment-\\d+-\\d+")) {
+          return "[" + part + "] ";
+        }
+      }
+
+      return "";
     }
   }
 }

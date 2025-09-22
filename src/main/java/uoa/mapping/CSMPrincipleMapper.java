@@ -80,9 +80,19 @@ public class CSMPrincipleMapper {
             .CLEAR_LAYOUT); // 	4.8.5.2 Class, package, and module annotations + Consistent Design
 
     addMapping("CommentsIndentation", CSMPrinciple.CLEAR_LAYOUT); // 4.8.6.1 Block comment style
+
+    // Naming conventions - mapped to Clear Layout for consistent code organization and readability
     addMapping("PackageName", CSMPrinciple.CLEAR_LAYOUT); // 5.2.1 Package names
     addMapping("TypeName", CSMPrinciple.CLEAR_LAYOUT); // 5.2.2 Class names
     addMapping("MethodName", CSMPrinciple.CLEAR_LAYOUT); // 5.2.3 Method names
+    addMapping("MemberName", CSMPrinciple.CLEAR_LAYOUT); // 5.2.5 Non-constant field names
+    addMapping("LocalVariableName", CSMPrinciple.CLEAR_LAYOUT); // 5.2.7 Local variable names
+    addMapping("MethodTypeParameterName", CSMPrinciple.CLEAR_LAYOUT); // 5.2.8 Type variable names
+    addMapping("ClassTypeParameterName", CSMPrinciple.CLEAR_LAYOUT); // 5.2.8 Type variable names
+    addMapping(
+        "InterfaceTypeParameterName", CSMPrinciple.CLEAR_LAYOUT); // 5.2.8 Type variable names
+    addMapping("RecordTypeParameterName", CSMPrinciple.CLEAR_LAYOUT); // 5.2.8 Type variable names
+    addMapping("AbbreviationAsWordInName", CSMPrinciple.CLEAR_LAYOUT); // 5.3 Camel case: defined
 
     // Explanatory Language principles
     addMapping("OuterTypeFilename", CSMPrinciple.EXPLANATORY_LANGUAGE); // 2.1 File name
@@ -104,8 +114,6 @@ public class CSMPrincipleMapper {
     addMapping(
         "CatchParameterName",
         CSMPrinciple.EXPLANATORY_LANGUAGE); // 5.1 Rules common to all identifiers
-    addMapping("TypeName", CSMPrinciple.EXPLANATORY_LANGUAGE); // 5.2.2 Class names
-    addMapping("MethodName", CSMPrinciple.EXPLANATORY_LANGUAGE); // 5.2.3 Method names
 
     // JAVADOCS
     addMapping("SingleLineJavadoc", CSMPrinciple.EXPLANATORY_LANGUAGE); // 7.1.1 General form

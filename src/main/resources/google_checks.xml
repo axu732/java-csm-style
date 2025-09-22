@@ -14,11 +14,6 @@
   <module name="TreeWalker">
     <module name="OuterTypeFilename" />
     <module name="OneTopLevelClass" />
-    <module name="EmptyBlock">
-      <property name="option" value="TEXT" />
-      <property name="tokens"
-        value="LITERAL_TRY, LITERAL_FINALLY, LITERAL_IF, LITERAL_ELSE, LITERAL_SWITCH" />
-    </module>
     <module name="NeedBraces">
       <property name="tokens"
         value="LITERAL_DO, LITERAL_ELSE, LITERAL_FOR, LITERAL_IF, LITERAL_WHILE" />
@@ -134,16 +129,13 @@
         value="Method name ''{0}'' must match pattern ''{1}''." />
     </module>
     <module name="AvoidStarImport" />
-    <module name="UnusedImports" />
     <module name="RedundantImport" />
     <module name="RedundantModifier" />
-    <module name="UnnecessaryParentheses" />
     <module name="SimplifyBooleanExpression" />
     <module name="SimplifyBooleanReturn" />
     <module name="EmptyStatement" />
     <module name="ConstantName" />
     <module name="StaticVariableName" />
-    <module name="VisibilityModifier" />
     <module name="FinalClass" />
     <module name="MissingJavadocMethod">
       <property name="scope" value="public" />
