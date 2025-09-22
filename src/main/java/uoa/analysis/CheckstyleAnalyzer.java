@@ -260,11 +260,20 @@ public class CheckstyleAnalyzer {
       String normalizedPath = fullPath.replace('\\', '/');
 
       // Look for assignment pattern like "assignment-1-X" in the path
+      // We want the LAST matching assignment folder (most specific one)
       String[] pathParts = normalizedPath.split("/");
+      String lastAssignment = null;
+
       for (String part : pathParts) {
         if (part.startsWith("assignment-") && part.matches("assignment-\\d+-\\d+")) {
-          return "[" + part + "] ";
+          lastAssignment = part;
         }
+      }
+
+      if (lastAssignment != null) {
+        // Extract just the numeric parts (e.g., "assignment-1-1" -> "1-1")
+        String numericPart = lastAssignment.substring("assignment-".length());
+        return "[" + numericPart + "] ";
       }
 
       return "";
