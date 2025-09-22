@@ -107,6 +107,32 @@ public class CSMPrincipleMapper {
     addMapping("TypeName", CSMPrinciple.EXPLANATORY_LANGUAGE); // 5.2.2 Class names
     addMapping("MethodName", CSMPrinciple.EXPLANATORY_LANGUAGE); // 5.2.3 Method names
 
+    // JAVADOCS
+    addMapping("SingleLineJavadoc", CSMPrinciple.EXPLANATORY_LANGUAGE); // 7.1.1 General form
+    addMapping("InvalidJavadocPosition", CSMPrinciple.EXPLANATORY_LANGUAGE); // 7.1.1 General form
+
+    addMapping("JavadocParagraph", CSMPrinciple.EXPLANATORY_LANGUAGE); // 7.1.2 Paragraphs
+    addMapping(
+        "RequireEmptyLineBeforeBlockTagGroup",
+        CSMPrinciple.EXPLANATORY_LANGUAGE); // 7.1.2 Paragraphs
+
+    addMapping("AtclauseOrder", CSMPrinciple.EXPLANATORY_LANGUAGE); // 7.1.3 Block tags
+    addMapping(
+        "JavadocTagContinuationIndentation", CSMPrinciple.EXPLANATORY_LANGUAGE); // 7.1.3 Block tags
+    addMapping(
+        "NonEmptyAtclauseDescription", CSMPrinciple.EXPLANATORY_LANGUAGE); // 7.1.3 Block tags
+
+    addMapping("SummaryJavadoc", CSMPrinciple.EXPLANATORY_LANGUAGE); // 7.2 The summary fragment
+
+    addMapping(
+        "MissingJavadocType", CSMPrinciple.EXPLANATORY_LANGUAGE); // 7.3 Where Javadoc is used
+    addMapping(
+        "MissingJavadocMethod", CSMPrinciple.EXPLANATORY_LANGUAGE); // 7.3 Where Javadoc is used
+    addMapping("JavadocMethod", CSMPrinciple.EXPLANATORY_LANGUAGE); // 7.3 Where Javadoc is used
+
+    // 7.3.1 Exception: self-explanatory members, 7.3.2 Exception: overrides and 7.3.4 Non-required
+    // Javadoc are covered by other rules
+
     // Simple Constructs principles
     addMapping(
         "MultipleVariableDeclarations",
