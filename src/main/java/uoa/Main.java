@@ -252,6 +252,31 @@ public class Main {
         .limit(5)
         .forEach(
             entry -> System.out.printf("  %s: %d violations%n", entry.getKey(), entry.getValue()));
+
+    // Show unmapped rules if any
+    java.util.Set<String> unmappedRules =
+        violations.stream()
+            .filter(v -> "Unmapped".equals(v.getCsmPrinciple()))
+            .map(ViolationRecord::getCheckstyleRule)
+            .collect(java.util.stream.Collectors.toSet());
+
+    if (!unmappedRules.isEmpty()) {
+      System.out.println();
+      System.out.println("Unmapped Checkstyle rules found:");
+      unmappedRules.stream()
+          .sorted()
+          .forEach(
+              rule -> {
+                long count =
+                    violations.stream()
+                        .filter(
+                            v ->
+                                rule.equals(v.getCheckstyleRule())
+                                    && "Unmapped".equals(v.getCsmPrinciple()))
+                        .count();
+                System.out.printf("  %s: %d violations%n", rule, count);
+              });
+    }
   }
 
   /** Generate a default output file path with timestamp. */

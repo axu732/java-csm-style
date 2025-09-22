@@ -143,7 +143,6 @@
     <module name="EmptyStatement" />
     <module name="ConstantName" />
     <module name="StaticVariableName" />
-    <module name="HideUtilityClassConstructor" />
     <module name="VisibilityModifier" />
     <module name="FinalClass" />
     <module name="MissingJavadocMethod">
