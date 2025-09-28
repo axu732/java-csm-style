@@ -43,172 +43,186 @@ public class CSMPrincipleMapper {
    * HAVE BEEN TAKEN FROM THE GOOGLE DOC, FIRST MENTION IS WHAT IS IMPLEMENTED
    */
   private void initializeDefaultMappings() {
-    // Clear Layout principles
-    addMapping("NoLineWrap", CSMPrinciple.CLEAR_LAYOUT);
-    addMapping("CustomImportOrder", CSMPrinciple.CLEAR_LAYOUT); // 3.3.3 Ordering and spacing
-    addMapping(
-        "OneTopLevelClass",
-        CSMPrinciple.CLEAR_LAYOUT); // 3.4.1 Exactly one top-level class declaration
-    addMapping(
-        "OverloadMethodsDeclarationOrder",
-        CSMPrinciple.CLEAR_LAYOUT); // 3.4.2.1 Overloads: never split
-    addMapping(
-        "ConstructorsDeclarationGrouping",
-        CSMPrinciple.CLEAR_LAYOUT); // 3.4.2.1 Overloads: never split
-    addMapping(
-        "RegexpSinglelineJava", CSMPrinciple.CLEAR_LAYOUT); // 4.1.3 Empty blocks: may be concise
-    addMapping("LineLength", CSMPrinciple.CLEAR_LAYOUT); // 4.4 Column limit: 100
-    addMapping("OperatorWrap", CSMPrinciple.CLEAR_LAYOUT); // 4.5.1 Where to break
-    addMapping("SeparatorWrap", CSMPrinciple.CLEAR_LAYOUT); // 4.5.1 Where to break
-    addMapping("MethodParamPad", CSMPrinciple.CLEAR_LAYOUT); // 4.5.1 Where to break
-    addMapping(
-        "EmptyLineSeparator",
-        CSMPrinciple.CLEAR_LAYOUT); // 4.6.1 Vertical Whitespace + Consistent Design
-    addMapping(
-        "VariableDeclarationUsageDistance",
-        CSMPrinciple.CLEAR_LAYOUT); // 4.8.2.2 Declared when needed
+    // Google Java Style Guide mappings to Explanatory Language principle
 
-    // 4.8.5.3 Method and constructor annotations and 4.8.5.4 Field annotations also covered in
-    // these two rules
-    addMapping(
-        "AnnotationLocation",
-        CSMPrinciple
-            .CLEAR_LAYOUT); // 	4.8.5.2 Class, package, and module annotations + Consistent Design
-    addMapping(
-        "InvalidJavadocPosition",
-        CSMPrinciple
-            .CLEAR_LAYOUT); // 	4.8.5.2 Class, package, and module annotations + Consistent Design
+    // 2.1 File name - Files must be properly named and use appropriate encoding
+    addMapping("OuterTypeFilename", CSMPrinciple.EXPLANATORY_LANGUAGE);
 
-    addMapping("CommentsIndentation", CSMPrinciple.CLEAR_LAYOUT); // 4.8.6.1 Block comment style
+    // 2.3.3 Non-ASCII characters - Proper handling of non-ASCII characters
+    addMapping("AvoidEscapedUnicodeCharacters", CSMPrinciple.EXPLANATORY_LANGUAGE);
 
-    // Naming conventions - mapped to Clear Layout for consistent code organization and readability
-    addMapping("PackageName", CSMPrinciple.CLEAR_LAYOUT); // 5.2.1 Package names
-    addMapping("TypeName", CSMPrinciple.CLEAR_LAYOUT); // 5.2.2 Class names
-    addMapping("MethodName", CSMPrinciple.CLEAR_LAYOUT); // 5.2.3 Method names
-    addMapping("MemberName", CSMPrinciple.CLEAR_LAYOUT); // 5.2.5 Non-constant field names
-    addMapping("LocalVariableName", CSMPrinciple.CLEAR_LAYOUT); // 5.2.7 Local variable names
-    addMapping("PatternVariableName", CSMPrinciple.CLEAR_LAYOUT); // 5.2.7 Local variablenames
-    addMapping("MethodTypeParameterName", CSMPrinciple.CLEAR_LAYOUT); // 5.2.8 Type variable names
-    addMapping("ClassTypeParameterName", CSMPrinciple.CLEAR_LAYOUT); // 5.2.8 Type variable names
-    addMapping(
-        "InterfaceTypeParameterName", CSMPrinciple.CLEAR_LAYOUT); // 5.2.8 Type variable names
-    addMapping("RecordTypeParameterName", CSMPrinciple.CLEAR_LAYOUT); // 5.2.8 Type variable names
-    addMapping("AbbreviationAsWordInName", CSMPrinciple.CLEAR_LAYOUT); // 5.3 Camel case: defined
+    // 3.2 Package statement - Package statements should not be line-wrapped
+    addMapping("NoLineWrap", CSMPrinciple.EXPLANATORY_LANGUAGE);
 
-    // Explanatory Language principles
-    addMapping("OuterTypeFilename", CSMPrinciple.EXPLANATORY_LANGUAGE); // 2.1 File name
-    addMapping(
-        " FileTabCharacter",
-        CSMPrinciple.EXPLANATORY_LANGUAGE); // 2.3.1 Whitespace Characters. + Clear Layout
-    addMapping(
-        "IllegalTokenText", CSMPrinciple.EXPLANATORY_LANGUAGE); // 2.3.2 Special escape sequences
-    addMapping(
-        "AvoidEscapedUnicodeCharacters",
-        CSMPrinciple.EXPLANATORY_LANGUAGE); // 2.3.3 Non-ASCII characters
-    addMapping("AvoidStarImport", CSMPrinciple.EXPLANATORY_LANGUAGE); // 3.3.1 No wildcard imports
-    addMapping(
-        "MultipleVariableDeclarations",
-        CSMPrinciple.EXPLANATORY_LANGUAGE); // 4.8.2.1 One variable per declaration
-    addMapping("FallThrough", CSMPrinciple.EXPLANATORY_LANGUAGE); // 4.8.4.2 Fall-through: commented
+    // 3.3.1 No wildcard imports - Avoid wildcard imports for clarity
+    addMapping("AvoidStarImport", CSMPrinciple.EXPLANATORY_LANGUAGE);
+
+    // 3.3.2 No line-wrapping - Import statements should not be line-wrapped
+    addMapping("NoLineWrap", CSMPrinciple.EXPLANATORY_LANGUAGE);
+
+    // 4.8.3.2 No C-style array declarations - Use Java-style array declarations
+    addMapping("ArrayTypeStyle", CSMPrinciple.EXPLANATORY_LANGUAGE);
+
+    // 4.8.4.2 Fall-through: commented - Fall-through cases must be commented
+    addMapping("FallThrough", CSMPrinciple.EXPLANATORY_LANGUAGE);
+
+    // 4.8.6.2 TODO comments - TODO comments should follow proper format
     addMapping("TodoComment", CSMPrinciple.EXPLANATORY_LANGUAGE);
-    addMapping("UpperEll", CSMPrinciple.EXPLANATORY_LANGUAGE); // 4.8.8 Numeric Literals
-    addMapping(
-        "CatchParameterName",
-        CSMPrinciple.EXPLANATORY_LANGUAGE); // 5.1 Rules common to all identifiers
 
-    // JAVADOCS
-    addMapping("SingleLineJavadoc", CSMPrinciple.EXPLANATORY_LANGUAGE); // 7.1.1 General form
-    addMapping("InvalidJavadocPosition", CSMPrinciple.EXPLANATORY_LANGUAGE); // 7.1.1 General form
+    // 4.8.8 Numeric Literals - Proper formatting of numeric literals
+    addMapping("UpperEll", CSMPrinciple.EXPLANATORY_LANGUAGE);
 
-    addMapping("JavadocParagraph", CSMPrinciple.EXPLANATORY_LANGUAGE); // 7.1.2 Paragraphs
-    addMapping(
-        "RequireEmptyLineBeforeBlockTagGroup",
-        CSMPrinciple.EXPLANATORY_LANGUAGE); // 7.1.2 Paragraphs
+    // 5.1 Rules common to all identifiers - General identifier naming rules
+    addMapping("CatchParameterName", CSMPrinciple.EXPLANATORY_LANGUAGE);
 
-    addMapping("AtclauseOrder", CSMPrinciple.EXPLANATORY_LANGUAGE); // 7.1.3 Block tags
-    addMapping(
-        "JavadocTagContinuationIndentation", CSMPrinciple.EXPLANATORY_LANGUAGE); // 7.1.3 Block tags
-    addMapping(
-        "NonEmptyAtclauseDescription", CSMPrinciple.EXPLANATORY_LANGUAGE); // 7.1.3 Block tags
+    // 5.2.1 Package names - Package names should follow naming conventions
+    addMapping("PackageName", CSMPrinciple.EXPLANATORY_LANGUAGE);
 
-    addMapping("SummaryJavadoc", CSMPrinciple.EXPLANATORY_LANGUAGE); // 7.2 The summary fragment
+    // 5.2.2 Class names - Class names should follow naming conventions
+    addMapping("TypeName", CSMPrinciple.EXPLANATORY_LANGUAGE);
 
-    addMapping(
-        "MissingJavadocType", CSMPrinciple.EXPLANATORY_LANGUAGE); // 7.3 Where Javadoc is used
-    addMapping(
-        "MissingJavadocMethod", CSMPrinciple.EXPLANATORY_LANGUAGE); // 7.3 Where Javadoc is used
-    addMapping("JavadocMethod", CSMPrinciple.EXPLANATORY_LANGUAGE); // 7.3 Where Javadoc is used
+    // 5.2.3 Method names - Method names should follow naming conventions
+    addMapping("MethodName", CSMPrinciple.EXPLANATORY_LANGUAGE);
 
-    // 7.3.1 Exception: self-explanatory members, 7.3.2 Exception: overrides and 7.3.4 Non-required
-    // Javadoc are covered by other rules
+    // 5.2.5 Non-constant field names - Field names should follow naming conventions
+    addMapping("MemberName", CSMPrinciple.EXPLANATORY_LANGUAGE);
 
-    // Simple Constructs principles
-    addMapping(
-        "MultipleVariableDeclarations",
-        CSMPrinciple.SIMPLE_CONSTRUCTS); // 4.8.2.1 One variable per declaration
+    // 5.2.6 Parameter Names
+    addMapping("ParameterName", CSMPrinciple.EXPLANATORY_LANGUAGE);
+    addMapping("CatchParameterName", CSMPrinciple.EXPLANATORY_LANGUAGE);
+    addMapping("LambdaParameterName", CSMPrinciple.EXPLANATORY_LANGUAGE);
+    addMapping("RecordComponentName", CSMPrinciple.EXPLANATORY_LANGUAGE);
 
-    // Be Consistent principles
+    // 5.2.7 Local variable names - Local variable names should follow naming conventions
+    addMapping("LocalVariableName", CSMPrinciple.EXPLANATORY_LANGUAGE);
 
-    addMapping("EmptyLineSeparator", CSMPrinciple.BE_CONSISTENT); // 3 Source file structure
+    // 5.2.8 Type variable names - Type variable names should follow naming conventions
+    addMapping("ClassTypeParameterName", CSMPrinciple.EXPLANATORY_LANGUAGE);
+    addMapping("MethodTypeParameterName", CSMPrinciple.EXPLANATORY_LANGUAGE);
+    addMapping("InterfaceTypeParameterName", CSMPrinciple.EXPLANATORY_LANGUAGE);
+    addMapping("RecordTypeParameterName", CSMPrinciple.EXPLANATORY_LANGUAGE);
 
-    // Line Length and No Line Wrape corresponds to 3.2 Package Statement but is covered by 4.4
-    // Column Length and 3.3.2 No Line-Wrapping
+    // 5.3 Camel case: defined - Proper camel case usage
+    addMapping("AbbreviationAsWordInName", CSMPrinciple.EXPLANATORY_LANGUAGE);
 
-    addMapping(
-        "NeedBraces",
-        CSMPrinciple.BE_CONSISTENT); // 4.1.1 Use of optional braces + No Unused Content
+    // 7.2 The summary fragment - Javadoc summary should be properly formatted
+    addMapping("SummaryJavadoc", CSMPrinciple.EXPLANATORY_LANGUAGE);
 
-    addMapping("LeftCurly", CSMPrinciple.BE_CONSISTENT); // 4.1.2 Nonempty blocks: K & R style
-    addMapping("RightCurly", CSMPrinciple.BE_CONSISTENT); // 4.1.2 Nonempty blocks: K & R style
+    // 7.3 Where Javadoc is used - General Javadoc usage requirements
+    addMapping("MissingJavadocType", CSMPrinciple.EXPLANATORY_LANGUAGE);
+    addMapping("MissingJavadocMethod", CSMPrinciple.EXPLANATORY_LANGUAGE);
+    addMapping("JavadocMethod", CSMPrinciple.EXPLANATORY_LANGUAGE);
 
-    addMapping("Indentation", CSMPrinciple.BE_CONSISTENT); // 4.2 Block indentation
+    // 7.3.1 Exception: self-explanatory members - Some members don't need Javadoc
+    addMapping("MissingJavadocMethod", CSMPrinciple.EXPLANATORY_LANGUAGE);
 
-    addMapping("OneStatementPerLine", CSMPrinciple.BE_CONSISTENT); // 4.3 One statement per line
+    // 7.3.2 Exception: overrides - Override methods may not need Javadoc
+    addMapping("MissingJavadocMethod", CSMPrinciple.EXPLANATORY_LANGUAGE);
 
-    // 4.4 Column limit: 100 + Clear Layout
+    // 7.3.4 Non-required Javadoc - Rules for when Javadoc is not required
+    addMapping("MissingJavadocType", CSMPrinciple.EXPLANATORY_LANGUAGE);
 
-    // 4.5.2 Indent continuation lines at least +4 Spaces is Covered by 4.2 Block Indentation with
-    // Indentation
+    // Google Java Style Guide mappings to Clear Layout principle
 
-    // 4.6.1 Vertical Whitespace + Clear Layout
+    // 2.3.1 Whitespace characters - Proper use of whitespace characters
+    addMapping("FileTabCharacter", CSMPrinciple.CLEAR_LAYOUT);
 
-    addMapping("WhitespaceAround", CSMPrinciple.BE_CONSISTENT); // 4.6.2 Horizontal whitespace
-    addMapping("GenericWhitespace", CSMPrinciple.BE_CONSISTENT); // 4.6.2 Horizontal whitespace
-    addMapping("MethodParamPad", CSMPrinciple.BE_CONSISTENT); // 4.6.2 Horizontal whitespace
-    addMapping("ParenPad", CSMPrinciple.BE_CONSISTENT); // 4.6.2 Horizontal whitespace
-    addMapping("WhitespaceAfter", CSMPrinciple.BE_CONSISTENT); // 4.6.2 Horizontal whitespace
-    addMapping("NoWhitespaceBefore", CSMPrinciple.BE_CONSISTENT); // 4.6.2 Horizontal whitespace
-    addMapping(
-        "NoWhitespaceBeforeCaseDefaultColon",
-        CSMPrinciple.BE_CONSISTENT); // 4.6.2 Horizontal whitespace
-    addMapping("MatchXpath", CSMPrinciple.BE_CONSISTENT); // 4.6.2 Horizontal whitespace
+    // 2.3.2 Special escape sequences - Proper use of escape sequences
+    addMapping("IllegalTokenText", CSMPrinciple.CLEAR_LAYOUT);
 
-    addMapping(
-        "ArrayTypeStyle", CSMPrinciple.BE_CONSISTENT); // 4.8.3.2 No C-style array declarations
+    // 3.3.3 Ordering and spacing - Import statement ordering and spacing
+    addMapping("CustomImportOrder", CSMPrinciple.CLEAR_LAYOUT);
 
-    // 4.8.4.1 Switch Statement Indentation is Covered by Indentation already.
+    // 3.4.1 Exactly one top-level class declaration - One class per file
+    addMapping("OneTopLevelClass", CSMPrinciple.CLEAR_LAYOUT);
 
-    // 4.8.5.2 Class annotations, 4.8.5.3 Method and constructor annotations, 4.8.5.4 Field
-    // annotations already covered in Clear Layout
+    // 3.4.2.1 Overloads: never split - Keep overloaded methods together
+    addMapping("OverloadMethodsDeclarationOrder", CSMPrinciple.CLEAR_LAYOUT);
+    addMapping("ConstructorsDeclarationGrouping", CSMPrinciple.CLEAR_LAYOUT);
 
-    addMapping("ModifierOrder", CSMPrinciple.BE_CONSISTENT); // 4.8.7 Modifiers
+    // 4.1.1 Use of optional braces - Braces should be used consistently
+    addMapping("NeedBraces", CSMPrinciple.CLEAR_LAYOUT);
 
-    // 5.1 Rules common to all identifiers covered in Explanatory language
+    // 4.1.2 Nonempty blocks: K & R style - Brace placement style
+    addMapping("LeftCurly", CSMPrinciple.CLEAR_LAYOUT);
+    addMapping("RightCurly", CSMPrinciple.CLEAR_LAYOUT);
 
-    // 5.2.2 Class Names and 5.2.3 Method Names are in Clear Layout
+    // 4.1.3 Empty blocks: may be concise - Empty block formatting
+    addMapping("RegexpSinglelineJava", CSMPrinciple.CLEAR_LAYOUT);
 
-    // No Unused Content principles
+    // 4.2 Block indentation: +2 spaces - Consistent indentation
+    addMapping("Indentation", CSMPrinciple.CLEAR_LAYOUT);
 
-    // 4.1.1 Use of optional Braces is covered in Consistent Design
+    // 4.3 One statement per line - Each statement on its own line
+    addMapping("OneStatementPerLine", CSMPrinciple.CLEAR_LAYOUT);
 
-    // Avoid Duplication principles
+    // 4.4 Column limit: 100 - Line length limit
+    addMapping("LineLength", CSMPrinciple.CLEAR_LAYOUT);
 
-    // Modular Structure principles
+    // 4.5.1 Where to break - Line wrapping rules
+    addMapping("OperatorWrap", CSMPrinciple.CLEAR_LAYOUT);
+    addMapping("SeparatorWrap", CSMPrinciple.CLEAR_LAYOUT);
+    addMapping("MethodParamPad", CSMPrinciple.CLEAR_LAYOUT);
 
-    // Congruent Implementation principles
-    addMapping(
-        "EmptyCatchBlock",
-        CSMPrinciple.CONGRUENT_IMPLEMENTATION); // 6.2 Caught exceptions: not ignored
+    // 4.5.2 Indent continuation lines at least +4 spaces - Continuation indentation
+    addMapping("Indentation", CSMPrinciple.CLEAR_LAYOUT);
+
+    // 4.6.1 Vertical Whitespace - Vertical spacing rules
+    addMapping("EmptyLineSeparator", CSMPrinciple.CLEAR_LAYOUT);
+
+    // 4.6.2 Horizontal whitespace - Horizontal spacing rules
+    addMapping("WhitespaceAround", CSMPrinciple.CLEAR_LAYOUT);
+    addMapping("GenericWhitespace", CSMPrinciple.CLEAR_LAYOUT);
+    addMapping("MethodParamPad", CSMPrinciple.CLEAR_LAYOUT);
+    addMapping("ParenPad", CSMPrinciple.CLEAR_LAYOUT);
+    addMapping("WhitespaceAfter", CSMPrinciple.CLEAR_LAYOUT);
+    addMapping("NoWhitespaceBefore", CSMPrinciple.CLEAR_LAYOUT);
+    addMapping("NoWhitespaceBeforeCaseDefaultColon", CSMPrinciple.CLEAR_LAYOUT);
+    addMapping("MatchXpath", CSMPrinciple.CLEAR_LAYOUT);
+
+    // 4.8.2.1 One variable per declaration - Separate variable declarations
+    addMapping("MultipleVariableDeclarations", CSMPrinciple.CLEAR_LAYOUT);
+
+    // 4.8.2.2 Declared when needed - Variable declaration placement
+    addMapping("VariableDeclarationUsageDistance", CSMPrinciple.CLEAR_LAYOUT);
+
+    // 4.8.4.1 Indentation - Switch statement indentation
+    addMapping("Indentation", CSMPrinciple.CLEAR_LAYOUT);
+
+    // 4.8.5.2 Class annotations - Class annotation formatting
+    addMapping("AnnotationLocation", CSMPrinciple.CLEAR_LAYOUT);
+    addMapping("InvalidJavadocPosition", CSMPrinciple.CLEAR_LAYOUT);
+
+    // 4.8.5.3 Method and constructor annotations - Method annotation formatting
+    addMapping("AnnotationLocation", CSMPrinciple.CLEAR_LAYOUT);
+    addMapping("InvalidJavadocPosition", CSMPrinciple.CLEAR_LAYOUT);
+
+    // 4.8.5.4 Field annotations - Field annotation formatting
+    addMapping("AnnotationLocation", CSMPrinciple.CLEAR_LAYOUT);
+    addMapping("InvalidJavadocPosition", CSMPrinciple.CLEAR_LAYOUT);
+
+    // 4.8.6.1 Block comment style - Block comment formatting
+    addMapping("CommentsIndentation", CSMPrinciple.CLEAR_LAYOUT);
+
+    // 4.8.7 Modifiers - Modifier ordering
+    addMapping("ModifierOrder", CSMPrinciple.CLEAR_LAYOUT);
+
+    // 7.1.1 General form - General Javadoc formatting
+    addMapping("JavadocStyle", CSMPrinciple.CLEAR_LAYOUT);
+    addMapping("InvalidJavadocPosition", CSMPrinciple.CLEAR_LAYOUT);
+
+    // 7.1.2 Paragraphs - Javadoc paragraph formatting
+    addMapping("JavadocParagraph", CSMPrinciple.CLEAR_LAYOUT);
+    addMapping("RequireEmptyLineBeforeBlockTagGroup", CSMPrinciple.CLEAR_LAYOUT);
+
+    // 7.1.3 Block tags - Javadoc block tag formatting
+    addMapping("JavadocTagContinuationIndentation", CSMPrinciple.CLEAR_LAYOUT);
+    addMapping("AtclauseOrder", CSMPrinciple.CLEAR_LAYOUT);
+    addMapping("NonEmptyAtclauseDescription", CSMPrinciple.CLEAR_LAYOUT);
+
+    // Be Consistent
+    // 4.8.4.3 Exhaustiveness and presence of the default label
+    addMapping("MissingSwitchDefault", CSMPrinciple.BE_CONSISTENT);
   }
 
   /** Add a new mapping between a Checkstyle rule and a CSM principle. */
