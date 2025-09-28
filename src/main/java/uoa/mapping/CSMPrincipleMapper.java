@@ -208,7 +208,7 @@ public class CSMPrincipleMapper {
     addMapping("ModifierOrder", CSMPrinciple.CLEAR_LAYOUT);
 
     // 7.1.1 General form - General Javadoc formatting
-    addMapping("JavadocStyle", CSMPrinciple.CLEAR_LAYOUT);
+    addMapping("SingleLineJavadoc", CSMPrinciple.CLEAR_LAYOUT);
     addMapping("InvalidJavadocPosition", CSMPrinciple.CLEAR_LAYOUT);
 
     // 7.1.2 Paragraphs - Javadoc paragraph formatting
