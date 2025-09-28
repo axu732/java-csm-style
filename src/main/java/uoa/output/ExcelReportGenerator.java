@@ -30,16 +30,25 @@ public class ExcelReportGenerator {
   private static final Logger logger = LoggerFactory.getLogger(ExcelReportGenerator.class);
 
   private static final String[] COLUMN_HEADERS = {
-    "File", "Checkstyle Rule", "CSM Principle", "Line Number", "Severity", "Message"
+    "File",
+    "File Prefix",
+    "Checkstyle Rule",
+    "CSM Principle",
+    "Line Number",
+    "Severity",
+    "Message",
+    "Line Snippet"
   };
 
   private static final int[] COLUMN_WIDTHS = {
     8000, // File
+    3000, // File Prefix
     6000, // Checkstyle Rule
     5000, // CSM Principle
     3000, // Line Number
     3000, // Severity
-    12000 // Message
+    12000, // Message
+    10000 // Line Snippet
   };
 
   /**
@@ -98,25 +107,33 @@ public class ExcelReportGenerator {
       fileCell.setCellValue(violation.getFileName());
       fileCell.setCellStyle(dataStyle);
 
-      Cell ruleCell = row.createCell(1);
+      Cell prefixCell = row.createCell(1);
+      prefixCell.setCellValue(violation.getFilePrefix());
+      prefixCell.setCellStyle(centerStyle);
+
+      Cell ruleCell = row.createCell(2);
       ruleCell.setCellValue(violation.getCheckstyleRule());
       ruleCell.setCellStyle(dataStyle);
 
-      Cell principleCell = row.createCell(2);
+      Cell principleCell = row.createCell(3);
       principleCell.setCellValue(violation.getCsmPrinciple());
       principleCell.setCellStyle(dataStyle);
 
-      Cell lineCell = row.createCell(3);
+      Cell lineCell = row.createCell(4);
       lineCell.setCellValue(violation.getLineNumber());
       lineCell.setCellStyle(centerStyle);
 
-      Cell severityCell = row.createCell(4);
+      Cell severityCell = row.createCell(5);
       severityCell.setCellValue(violation.getSeverity());
       severityCell.setCellStyle(centerStyle);
 
-      Cell messageCell = row.createCell(5);
+      Cell messageCell = row.createCell(6);
       messageCell.setCellValue(violation.getMessage());
       messageCell.setCellStyle(dataStyle);
+
+      Cell snippetCell = row.createCell(7);
+      snippetCell.setCellValue(violation.getLineSnippet());
+      snippetCell.setCellStyle(dataStyle);
     }
 
     // Add metadata

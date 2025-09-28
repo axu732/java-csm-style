@@ -145,11 +145,13 @@ The Excel report contains the following sheets:
 1. **Violations**: Detailed list of all violations with:
 
    - File name
+   - File prefix (e.g., [1-1] for assignment folders)
    - Checkstyle rule name
    - Mapped CSM principle
    - Line number
    - Severity level
    - Violation message
+   - Line snippet (the actual code that was flagged)
 
 2. **Summary by File**: Count of violations per file, sorted by violation count
 

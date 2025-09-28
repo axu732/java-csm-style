@@ -200,10 +200,17 @@ public class CheckstyleAnalyzer {
         String fileName = new File(fullPath).getName();
 
         // Extract assignment name from path and prefix to filename
-        String prefixedFileName = extractAssignmentPrefix(fullPath) + fileName;
+        String prefix = extractAssignmentPrefix(fullPath);
+        String prefixedFileName = prefix.isEmpty() ? fileName : prefix + " " + fileName;
 
         String ruleName = extractRuleName(event.getSourceName());
         String csmPrinciple = principleMapper.getPrincipleDisplayName(ruleName);
+
+        // Extract file prefix (just the [x-x] part)
+        String filePrefix = prefix;
+
+        // Extract line snippet
+        String lineSnippet = extractLineSnippet(fullPath, event.getLine());
 
         ViolationRecord violation =
             new ViolationRecord(
@@ -212,7 +219,9 @@ public class CheckstyleAnalyzer {
                 csmPrinciple,
                 event.getLine(),
                 event.getMessage(),
-                event.getSeverityLevel().getName());
+                event.getSeverityLevel().getName(),
+                filePrefix,
+                lineSnippet);
 
         violations.add(violation);
 
@@ -273,7 +282,28 @@ public class CheckstyleAnalyzer {
       if (lastAssignment != null) {
         // Extract just the numeric parts (e.g., "assignment-1-1" -> "1-1")
         String numericPart = lastAssignment.substring("assignment-".length());
-        return "[" + numericPart + "] ";
+        return "[" + numericPart + "]";
+      }
+
+      return "";
+    }
+
+    /** Extract the specific line content from the file. */
+    private String extractLineSnippet(String filePath, int lineNumber) {
+      if (filePath == null || lineNumber <= 0) {
+        return "";
+      }
+
+      try {
+        List<String> lines = Files.readAllLines(Paths.get(filePath));
+        if (lineNumber <= lines.size()) {
+          String line = lines.get(lineNumber - 1); // Line numbers are 1-based
+          // Trim leading/trailing whitespace but preserve the content structure
+          return line.trim();
+        }
+      } catch (Exception e) {
+        logger.debug(
+            "Failed to read line {} from file {}: {}", lineNumber, filePath, e.getMessage());
       }
 
       return "";
