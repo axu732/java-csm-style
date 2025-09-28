@@ -23,11 +23,19 @@ Java code analysis tool that uses Checkstyle's Google Java conventions to analyz
 ### Command Line Mode
 
 ```bash
-# Analyze a directory with default output file
+# Analyze a directory with default output file (Unix/Linux/Mac)
 ./mvnw exec:java -Dexec.mainClass="uoa.Main" -Dexec.args="/path/to/java/source"
 
-# Analyze a directory with custom output file
+# Analyze a directory with custom output file (Unix/Linux/Mac)
 ./mvnw exec:java -Dexec.mainClass="uoa.Main" -Dexec.args="/path/to/java/source custom_report.xlsx"
+```
+
+```powershell
+# For Windows PowerShell users:
+.\mvnw exec:java `-Dexec.mainClass=uoa.Main `-Dexec.args=path\to\java\source
+
+# With custom output file
+.\mvnw exec:java `-Dexec.mainClass=uoa.Main `-Dexec.args="path\to\java\source custom_report.xlsx"
 ```
 
 ## Choosing a Folder to Analyze
@@ -65,28 +73,43 @@ Pass the folder path as an argument:
 #### Analyzing Your Current Project:
 
 ```bash
-# From within your project directory
+# Unix/Linux/Mac
 ./mvnw exec:java -Dexec.mainClass="uoa.Main" -Dexec.args="src/main/java"
+```
+
+```powershell
+# Windows PowerShell
+.\mvnw exec:java `-Dexec.mainClass=uoa.Main `-Dexec.args=src\main\java
 ```
 
 #### Analyzing Another Java Project:
 
 ```bash
-# Absolute path (Windows)
-./mvnw exec:java -Dexec.mainClass="uoa.Main" -Dexec.args="C:\Users\YourName\Documents\SomeJavaProject\src\main\java"
-
-# Absolute path (Unix/Linux/Mac)
+# Unix/Linux/Mac - Absolute path
 ./mvnw exec:java -Dexec.mainClass="uoa.Main" -Dexec.args="/home/username/projects/SomeJavaProject/src/main/java"
 
-# Relative path
+# Unix/Linux/Mac - Relative path
 ./mvnw exec:java -Dexec.mainClass="uoa.Main" -Dexec.args="../other-project/src/main/java"
+```
+
+```powershell
+# Windows PowerShell - Absolute path
+.\mvnw exec:java `-Dexec.mainClass=uoa.Main `-Dexec.args="C:\Users\YourName\Documents\SomeJavaProject\src\main\java"
+
+# Windows PowerShell - Relative path
+.\mvnw exec:java `-Dexec.mainClass=uoa.Main `-Dexec.args=..\other-project\src\main\java
 ```
 
 #### Testing with Sample Code:
 
 ```bash
-# Analyze the included sample code
+# Unix/Linux/Mac
 ./mvnw exec:java -Dexec.mainClass="uoa.Main" -Dexec.args="src/main/java/uoa/sample"
+```
+
+```powershell
+# Windows PowerShell
+.\mvnw exec:java `-Dexec.mainClass=uoa.Main `-Dexec.args=src\main\java\uoa\sample
 ```
 
 ### What the Tool Does
