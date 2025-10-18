@@ -2,6 +2,26 @@
 
 Java code analysis tool that uses Checkstyle's Google Java conventions to analyze Java code and maps violations to Code Style Model (CSM) principles. The tool generates Excel reports showing which CSM principles are violated and in which files.
 
+## Quick Start
+
+### PowerShell (Windows) - Most Common Usage
+
+```powershell
+# Analyze a directory (mainClass is pre-configured in pom.xml)
+.\mvnw exec:java "-Dexec.args=assignment-1-281\assignment-1-1"
+
+# Alternative: Build once and use JAR
+.\mvnw package
+java -jar target\java-csm-style-1.0-SNAPSHOT.jar assignment-1-281\assignment-1-1
+```
+
+### Unix/Linux/Mac
+
+```bash
+# Analyze a directory (mainClass is pre-configured in pom.xml)
+./mvnw exec:java -Dexec.args="assignment-1-281/assignment-1-1"
+```
+
 ## Requirements
 
 - Java 17 or higher
@@ -32,10 +52,13 @@ Java code analysis tool that uses Checkstyle's Google Java conventions to analyz
 
 ```powershell
 # For Windows PowerShell users:
-.\mvnw exec:java `-Dexec.mainClass=uoa.Main `-Dexec.args=path\to\java\source
+.\mvnw exec:java "-Dexec.mainClass=uoa.Main" "-Dexec.args=path\to\java\source"
 
 # With custom output file
-.\mvnw exec:java `-Dexec.mainClass=uoa.Main `-Dexec.args="path\to\java\source custom_report.xlsx"
+.\mvnw exec:java "-Dexec.mainClass=uoa.Main" "-Dexec.args=path\to\java\source custom_report.xlsx"
+
+# Alternative syntax using single quotes:
+.\mvnw 'exec:java' '-Dexec.mainClass=uoa.Main' '-Dexec.args=path\to\java\source'
 ```
 
 ## Choosing a Folder to Analyze
@@ -79,7 +102,7 @@ Pass the folder path as an argument:
 
 ```powershell
 # Windows PowerShell
-.\mvnw exec:java `-Dexec.mainClass=uoa.Main `-Dexec.args=src\main\java
+.\mvnw exec:java "-Dexec.mainClass=uoa.Main" "-Dexec.args=src\main\java"
 ```
 
 #### Analyzing Another Java Project:
@@ -94,10 +117,10 @@ Pass the folder path as an argument:
 
 ```powershell
 # Windows PowerShell - Absolute path
-.\mvnw exec:java `-Dexec.mainClass=uoa.Main `-Dexec.args="C:\Users\YourName\Documents\SomeJavaProject\src\main\java"
+.\mvnw exec:java "-Dexec.mainClass=uoa.Main" "-Dexec.args=C:\Users\YourName\Documents\SomeJavaProject\src\main\java"
 
 # Windows PowerShell - Relative path
-.\mvnw exec:java `-Dexec.mainClass=uoa.Main `-Dexec.args=..\other-project\src\main\java
+.\mvnw exec:java "-Dexec.mainClass=uoa.Main" "-Dexec.args=..\other-project\src\main\java"
 ```
 
 #### Testing with Sample Code:
@@ -109,7 +132,7 @@ Pass the folder path as an argument:
 
 ```powershell
 # Windows PowerShell
-.\mvnw exec:java `-Dexec.mainClass=uoa.Main `-Dexec.args=src\main\java\uoa\sample
+.\mvnw exec:java "-Dexec.mainClass=uoa.Main" "-Dexec.args=src\main\java\uoa\sample"
 ```
 
 ### What the Tool Does
