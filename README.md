@@ -2,6 +2,26 @@
 
 Java code analysis tool that uses Checkstyle's Google Java conventions to analyze Java code and maps violations to Code Style Model (CSM) principles. The tool generates Excel reports showing which CSM principles are violated and in which files.
 
+## Quick Start
+
+### PowerShell (Windows) - Most Common Usage
+
+```powershell
+# Analyze a directory (mainClass is pre-configured in pom.xml)
+.\mvnw exec:java "-Dexec.args=assignment-1-281\assignment-1-1"
+
+# Alternative: Build once and use JAR
+.\mvnw package
+java -jar target\java-csm-style-1.0-SNAPSHOT.jar assignment-1-281\assignment-1-1
+```
+
+### Unix/Linux/Mac
+
+```bash
+# Analyze a directory (mainClass is pre-configured in pom.xml)
+./mvnw exec:java -Dexec.args="assignment-1-281/assignment-1-1"
+```
+
 ## Requirements
 
 - Java 17 or higher
@@ -23,11 +43,22 @@ Java code analysis tool that uses Checkstyle's Google Java conventions to analyz
 ### Command Line Mode
 
 ```bash
-# Analyze a directory with default output file
+# Analyze a directory with default output file (Unix/Linux/Mac)
 ./mvnw exec:java -Dexec.mainClass="uoa.Main" -Dexec.args="/path/to/java/source"
 
-# Analyze a directory with custom output file
+# Analyze a directory with custom output file (Unix/Linux/Mac)
 ./mvnw exec:java -Dexec.mainClass="uoa.Main" -Dexec.args="/path/to/java/source custom_report.xlsx"
+```
+
+```powershell
+# For Windows PowerShell users:
+.\mvnw exec:java "-Dexec.mainClass=uoa.Main" "-Dexec.args=path\to\java\source"
+
+# With custom output file
+.\mvnw exec:java "-Dexec.mainClass=uoa.Main" "-Dexec.args=path\to\java\source custom_report.xlsx"
+
+# Alternative syntax using single quotes:
+.\mvnw 'exec:java' '-Dexec.mainClass=uoa.Main' '-Dexec.args=path\to\java\source'
 ```
 
 ## Choosing a Folder to Analyze
@@ -65,28 +96,43 @@ Pass the folder path as an argument:
 #### Analyzing Your Current Project:
 
 ```bash
-# From within your project directory
+# Unix/Linux/Mac
 ./mvnw exec:java -Dexec.mainClass="uoa.Main" -Dexec.args="src/main/java"
+```
+
+```powershell
+# Windows PowerShell
+.\mvnw exec:java "-Dexec.mainClass=uoa.Main" "-Dexec.args=src\main\java"
 ```
 
 #### Analyzing Another Java Project:
 
 ```bash
-# Absolute path (Windows)
-./mvnw exec:java -Dexec.mainClass="uoa.Main" -Dexec.args="C:\Users\YourName\Documents\SomeJavaProject\src\main\java"
-
-# Absolute path (Unix/Linux/Mac)
+# Unix/Linux/Mac - Absolute path
 ./mvnw exec:java -Dexec.mainClass="uoa.Main" -Dexec.args="/home/username/projects/SomeJavaProject/src/main/java"
 
-# Relative path
+# Unix/Linux/Mac - Relative path
 ./mvnw exec:java -Dexec.mainClass="uoa.Main" -Dexec.args="../other-project/src/main/java"
+```
+
+```powershell
+# Windows PowerShell - Absolute path
+.\mvnw exec:java "-Dexec.mainClass=uoa.Main" "-Dexec.args=C:\Users\YourName\Documents\SomeJavaProject\src\main\java"
+
+# Windows PowerShell - Relative path
+.\mvnw exec:java "-Dexec.mainClass=uoa.Main" "-Dexec.args=..\other-project\src\main\java"
 ```
 
 #### Testing with Sample Code:
 
 ```bash
-# Analyze the included sample code
+# Unix/Linux/Mac
 ./mvnw exec:java -Dexec.mainClass="uoa.Main" -Dexec.args="src/main/java/uoa/sample"
+```
+
+```powershell
+# Windows PowerShell
+.\mvnw exec:java "-Dexec.mainClass=uoa.Main" "-Dexec.args=src\main\java\uoa\sample"
 ```
 
 ### What the Tool Does
@@ -122,11 +168,13 @@ The Excel report contains the following sheets:
 1. **Violations**: Detailed list of all violations with:
 
    - File name
+   - File prefix (e.g., [1-1] for assignment folders)
    - Checkstyle rule name
    - Mapped CSM principle
    - Line number
    - Severity level
    - Violation message
+   - Line snippet (the actual code that was flagged)
 
 2. **Summary by File**: Count of violations per file, sorted by violation count
 

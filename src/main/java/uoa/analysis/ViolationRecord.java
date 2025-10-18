@@ -8,6 +8,8 @@ public class ViolationRecord {
   private final int lineNumber;
   private final String message;
   private final String severity;
+  private final String filePrefix;
+  private final String lineSnippet;
 
   public ViolationRecord(
       String fileName,
@@ -15,13 +17,17 @@ public class ViolationRecord {
       String csmPrinciple,
       int lineNumber,
       String message,
-      String severity) {
+      String severity,
+      String filePrefix,
+      String lineSnippet) {
     this.fileName = fileName;
     this.checkstyleRule = checkstyleRule;
     this.csmPrinciple = csmPrinciple;
     this.lineNumber = lineNumber;
     this.message = message;
     this.severity = severity;
+    this.filePrefix = filePrefix;
+    this.lineSnippet = lineSnippet;
   }
 
   public String getFileName() {
@@ -46,6 +52,14 @@ public class ViolationRecord {
 
   public String getSeverity() {
     return severity;
+  }
+
+  public String getFilePrefix() {
+    return filePrefix;
+  }
+
+  public String getLineSnippet() {
+    return lineSnippet;
   }
 
   @Override
